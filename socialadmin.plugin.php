@@ -66,19 +66,21 @@ class SocialAdmin extends Plugin
 				if( count( $users ) > 1 ) {
 					// TODO: Handle multiple linked accounts
 				}
-				else {
+				elseif( count( $users ) > 0 ) {
 					$user = $users[0];
 					$user->remember();
 					Eventlog::log( _t( 'Successful %1$s login for %2$s', array( $service, $user->username ), __CLASS__ ), 'info', 'authentication' );
 					Utils::redirect( URL::get( 'admin' ) );
+				}
+				else {
+					// TODO: Handle unlinked social accounts
 				}
 				break;
 		}
 	}
 	
 	/**
-	 * function action_theme_loginform_controls
-	 * add a checkbox to the login screen to control our cookie
+	 * Add the login link to the login form
 	**/
 	public function action_form_login($form)
 	{
