@@ -13,4 +13,5 @@
 	]]></help>
 	<copyright>2013</copyright>
 	<guid>54dab864-b56f-412a-a857-ec87045c3506</guid>
+	<requires><feature>socialauth</feature></requires>
 </pluggable>
